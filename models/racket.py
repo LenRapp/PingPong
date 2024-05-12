@@ -18,8 +18,8 @@ class Racket():
     def get_rect(self):
         return self.rect
     
-    def racket_move(self):
-        if keyboard.is_pressed(self.key_up): # top rect >= 0 
+    def racket_move(self, screen_heigth):
+        if (keyboard.is_pressed(self.key_up) and self.rect.top >= 0): # top rect >= 0 
             self.rect = self.rect.move(0, -self.speed)
-        elif keyboard.is_pressed(self.key_down):# bottom rect <= screen heigth
+        elif (keyboard.is_pressed(self.key_down) and self.rect.bottom <= screen_heigth ):# bottom rect <= screen heigth
             self.rect = self.rect.move(0, self.speed)
